@@ -1,7 +1,7 @@
 // src/controllers/jobsController.js
-const { v4: uuidv4 } = require("uuid");
+const { randomUUID } = require("crypto");
 const Job = require("../models/Job");
-const JobLog = require("../models/JobLog");
+const JobLog = require("../models/JobLogs");
 const SchedulerService = require("../services/SchedulerService");
 
 const jobsController = {
@@ -18,7 +18,7 @@ const jobsController = {
       } = req.body;
 
       const job = new Job({
-        jobId: uuidv4(),
+        jobId: randomUUID(),
         title,
         description,
         type,

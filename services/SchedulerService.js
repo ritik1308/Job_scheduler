@@ -1,5 +1,5 @@
 const cron = require("node-cron");
-const { v4: uuidv4 } = require("uuid");
+const { randomUUID } = require("crypto");
 const Job = require("../models/Job");
 const JobLogs = require("../models/JobLogs");
 
@@ -9,7 +9,7 @@ class SchedulerService {
     this.init();
   }
   async init() {
-    await this.pendingJobs();
+    await this.loadPendingJobs();
   }
   async loadPendingJobs() {
     try {
