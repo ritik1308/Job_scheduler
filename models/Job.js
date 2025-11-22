@@ -21,7 +21,7 @@ const jobSchema = new mongoose.Schema(
       type: String,
       required: true,
       enum: {
-        values: ["http", "script", "function", "email"],
+        values: ["https", "script", "function", "email"],
         message: `{VALUE} is not supported we support http, script, function and email`,
       },
     },
